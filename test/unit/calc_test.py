@@ -49,6 +49,21 @@ class TestCalculate(unittest.TestCase):
         self.assertEqual(1, self.calc.square_root(1))
         self.assertEqual(2, self.calc.square_root(4))
 
+    def test_square_root_method_fails_with_negative_number(self):
+        self.assertRaises(TypeError, self.calc.square_root, -1)
+
+    def test_log10_method_returns_correct_result(self):
+        #self.assertEqual(0, self.calc.log10(0))
+        self.assertEqual(0, self.calc.log10(1))
+        self.assertEqual(1, self.calc.log10(10))
+
+    def test_log10_method_fails_with_lower_zero(self):
+        self.assertRaises(TypeError, self.calc.log10, -1)
+
+    def test_log10_method_fails_with_number_lower_zero_or_equal_zero(self):
+        self.assertRaises(TypeError, self.calc.log10, -1)
+        self.assertRaises(TypeError, self.calc.log10, 0)
+
     @patch('app.util.validate_permissions', side_effect=mocked_validation, create=True)
     def test_multiply_method_returns_correct_result(self, _validate_permissions):
         self.assertEqual(4, self.calc.multiply(2, 2))

@@ -39,11 +39,17 @@ class Calculator:
     def square_root(self, x):
         self.check_types(x, 0)
         if x < 0:
-            raise TypeError("Number must be positive or 0")
+            raise TypeError("Number must greater than 0 or 0")
         return math.sqrt(x)
+    
+    def log10(self, x):
+        self.check_types(x, 0)
+        # if x == 0:
+        #     raise TypeError("Number must greater than 0")
+        if x < 0 or x == 0:
+            raise TypeError("Number must greater than 0")
+        return math.log10(x)
         
-
-
 if __name__ == "__main__":  # pragma: no cover
     calc = Calculator()
     result = calc.add(2, 2)
